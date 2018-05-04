@@ -29,7 +29,7 @@ class Classifier(object):
 
     def __training_result(self):
         y_true, y_pred = self.labels_test, self.estimator.predict(self.features_test)
-        # print ('y_pred' , y_pred , 'y_true' , y_true)
+        print 'Accurancy: ',self.estimator.score(self.features_test,self.labels_test)
         print(classification_report(y_true, y_pred))
 
 def get_feature_dict(value_features,value_labels):
