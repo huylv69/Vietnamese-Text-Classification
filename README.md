@@ -8,14 +8,14 @@ python predict.py -i <filename document>
 ```
 ------
 ## Build lại chương trình 
-#### Xây dựng dữ liệu 
+#### Xây dựng dữ liệu & Tiền xử lý
 ```
 python preProcessData.py
 ```
-#### Tiền xử lý 
 - Dữ liệu tiền xử lý và lưu trong thư mục  processsed_data 
 - Trích chọn đặc trưng đưa vào thư mục feature_extraction
-- Chạy chương trình train : 
+
+### Chạy chương trình train : 
 ```
 python main.py
 ```

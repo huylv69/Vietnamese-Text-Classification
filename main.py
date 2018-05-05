@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-import numpy as np
-from random import randint
 import os
 import json
 import settings
-import cPickle as pickle
+from datetime import datetime
 from fileProcess import FileReader, FileStore 
 from preProcessData import FeatureExtraction
-from pyvi import ViTokenizer
-from sklearn.svm import LinearSVC
+
+import cPickle as pickle
 from gensim import corpora, matutils
+from sklearn.svm import LinearSVC
 from sklearn.metrics import classification_report
-from datetime import datetime
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 
 class Classifier(object):
     def __init__(self, features_train = None, labels_train = None, features_test = None, labels_test = None, estimator=None):
@@ -46,9 +46,17 @@ if __name__ == '__main__':
     features_test, labels_test = FeatureExtraction(data=features_test_loader).read_feature()
     print 'Read Feature Extraction Done! ',  str(datetime.now())
 
-    # Classifier
-    est = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=LinearSVC(random_state=0))
-    est.training()
+    # Classifier SVM
+    # est = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=LinearSVC(random_state=0))
+    # est.training()
+    # est.save_model(filePath='trained_model/linear_svc_model.pk') # save Model
 
-    # save Model
-    est.save_model(filePath='trained_model/linear_svc_model.pk')
+    # RandomForest Classifier
+    # est = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=RandomForestClassifier())
+    # est.training()
+    # est.save_model(filePath='trained_model/random_forest_model.pk') # save Model
+
+    # Logistic_Classifier
+    est = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=LogisticRegression())
+    est.training()
+    est.save_model(filePath='trained_model/logistic _model.pk') # save Model

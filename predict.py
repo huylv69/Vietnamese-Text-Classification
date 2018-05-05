@@ -5,7 +5,7 @@ import json
 import settings
 import cPickle as pickle
 from fileProcess import FileReader, FileStore 
-from preProcessData import FeatureExtraction
+from preProcessData import FeatureExtraction ,NLP
 from pyvi import ViTokenizer
 from sklearn.svm import LinearSVC
 from gensim import corpora, matutils
@@ -30,8 +30,18 @@ def readInput():
 if __name__ == '__main__':
     #  Read input data
     data = readInput()
-    classifier =pickle.load(open('trained_model/linear_svc_model.pk','rb'))
-    dense = FeatureExtraction(None).get_dense(text=data.decode('utf-16le'))
-    features = [] 
-    features.append(dense)
+    classifier = pickle.load(open('trained_model/logistic _model.pk','rb'))
+    
+    # bow
+    # dense = FeatureExtraction(None).get_dense(text=data.decode('utf-16le'))
+    # features = [] 
+    # features.append(dense)
+    
+    # tf-idf
+    vectorizer = pickle.load(open('vector_embedding/vector_embedding.pkl','rb'))
+    data_features = []
+    data_features.append(' '.join(NLP(text=data.decode('utf-16le')).get_words_feature()))
+    features = vectorizer.transform(data_features)
+    
+    # predict result 
     print classifier.predict(features)

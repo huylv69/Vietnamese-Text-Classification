@@ -1,10 +1,12 @@
-from fileProcess import FileStore,FileReader,DataLoader
 import settings
-from pyvi import ViTokenizer
-from gensim import corpora, matutils
 import os 
 from random import randint
 from datetime import datetime
+from fileProcess import FileStore,FileReader,DataLoader
+from pyvi import ViTokenizer
+from gensim import corpora, matutils
+from sklearn.feature_extraction.text import TfidfVectorizer
+
 class NLP(object):
     def __init__(self, text = None):
         self.text = text
@@ -59,14 +61,29 @@ class FeatureExtraction(object):
             self.labels.append(d['category'])
 
     def get_dense(self, text):
-        self.__load_dictionary()
+        #remove stopword
         words = NLP(text).get_words_feature()
         # Bag of words
+        self.__load_dictionary()
         vec = self.dictionary.doc2bow(words)
         dense = list(matutils.corpus2dense([vec], num_terms=len(self.dictionary)).T[0])
         return dense
 
-    def get_data_and_label(self):
+    # def build_tfidf(self,text):
+        
+    def get_data_and_label_tfidf(self):
+        print 'Building dataset'
+        self.features = []
+        self.labels = []
+        i = 0
+        for d in self.data:
+            i += 1
+            print "Step {} / {}".format(i, len(self.data))
+            self.features.append(' '.join(NLP(d['content']).get_words_feature()))
+            self.labels.append(d['category'])        
+        return self.features, self.labels
+    
+    def get_data_and_label_bow(self):
         self.__build_dataset()
         return self.features, self.labels
 
@@ -95,8 +112,18 @@ if __name__ == '__main__':
 
     # Feature Extraction
     print 'Feature Extraction! ',  str(datetime.now())
-    features_train, labels_train = FeatureExtraction(data=json_train).get_data_and_label()
-    features_test, labels_test = FeatureExtraction(data=json_test).get_data_and_label()
+    # Bow
+    # features_train, labels_train = FeatureExtraction(data=json_train).get_data_and_label_bow()
+    # features_test, labels_test = FeatureExtraction(data=json_test).get_data_and_label_bow()
+
+    #tf-idf
+    features_train, labels_train = FeatureExtraction(data=json_train).get_data_and_label_tfidf()
+    features_test, labels_test = FeatureExtraction(data=json_test).get_data_and_label_tfidf()
+    vectorizer = TfidfVectorizer(use_idf=True, min_df=0.0, max_df=1.0, ngram_range=(1, 2))
+    features_train = vectorizer.fit_transform(features_train)
+    features_test = vectorizer.transform(features_test)
+    FileStore(filePath=settings.VECTOR_EMBEDDING).save_pickle(obj=vectorizer)
+
     print 'Feature Extraction Done! ',  str(datetime.now())
 
     # Save feature extraction 
