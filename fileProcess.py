@@ -20,7 +20,8 @@ class DataLoader(object):
         self.__get_files()
         data = []
         for topic in self.files:
-            rand = randint(1, 5)
+            # rand = randint(1, 5)
+            rand =5
             i = 0
             for file in self.files[topic]:
                 content = FileReader(filePath=file).content()
@@ -72,7 +73,7 @@ class FileStore(object):
 
     def store_dictionary(self, dict_words):
         dictionary = corpora.Dictionary(dict_words)
-        dictionary.filter_extremes(no_below=20, no_above=0.3)
+        dictionary.filter_extremes(no_below=2, no_above=0.5)
         dictionary.save_as_text(self.filePath)
 
     def save_pickle(self,  obj):
