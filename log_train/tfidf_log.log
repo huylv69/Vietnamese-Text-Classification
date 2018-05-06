@@ -1,0 +1,92 @@
+huylv@huylv-hust:~/ML/code/text-classifcation$ python main.py 
+Reading Feature Extraction...  2018-05-06 22:53:41.074938
+Read Feature Extraction Done!  2018-05-06 22:53:46.651193
+Training by KNeighbors Classifier ...
+Tranning...  2018-05-06 22:53:46.651294
+Accurancy:  0.76238401142
+                  precision    recall  f1-score   support
+
+Chinh tri Xa hoi       0.55      0.74      0.63      1401
+        Doi song       0.55      0.45      0.50      1401
+        Khoa hoc       0.70      0.57      0.63      1401
+      Kinh doanh       0.73      0.85      0.79      1401
+       Phap luat       0.83      0.68      0.75      1401
+        Suc khoe       0.77      0.87      0.82      1401
+        The gioi       0.88      0.80      0.84      1401
+        The thao       0.94      0.95      0.95      1401
+         Van hoa       0.83      0.82      0.82      1401
+         Vi tinh       0.89      0.89      0.89      1401
+
+     avg / total       0.77      0.76      0.76     14010
+
+Tranning Done!  2018-05-06 22:54:12.871119
+Saving Model...  2018-05-06 22:54:12.871181
+Save Model Done!  2018-05-06 22:54:12.942092
+Training by KNeighbors Classifier Done !
+Training by SVM Classifier ...
+Tranning...  2018-05-06 22:54:12.942194
+Accurancy:  0.893147751606
+                  precision    recall  f1-score   support
+
+Chinh tri Xa hoi       0.84      0.80      0.82      1401
+        Doi song       0.88      0.67      0.76      1401
+        Khoa hoc       0.86      0.86      0.86      1401
+      Kinh doanh       0.89      0.91      0.90      1401
+       Phap luat       0.92      0.92      0.92      1401
+        Suc khoe       0.87      0.95      0.91      1401
+        The gioi       0.92      0.91      0.92      1401
+        The thao       0.97      0.98      0.97      1401
+         Van hoa       0.86      0.96      0.91      1401
+         Vi tinh       0.92      0.96      0.94      1401
+
+     avg / total       0.89      0.89      0.89     14010
+
+Tranning Done!  2018-05-06 22:54:22.705233
+Saving Model...  2018-05-06 22:54:22.705295
+Save Model Done!  2018-05-06 22:54:22.859020
+Training by SVM Classifier Done !
+Training by RandomForest Classifier ...
+Tranning...  2018-05-06 22:54:22.859117
+Accurancy:  0.738044254104
+                  precision    recall  f1-score   support
+
+Chinh tri Xa hoi       0.53      0.64      0.58      1401
+        Doi song       0.60      0.42      0.50      1401
+        Khoa hoc       0.70      0.63      0.66      1401
+      Kinh doanh       0.74      0.73      0.73      1401
+       Phap luat       0.79      0.84      0.81      1401
+        Suc khoe       0.75      0.82      0.78      1401
+        The gioi       0.83      0.76      0.79      1401
+        The thao       0.94      0.92      0.93      1401
+         Van hoa       0.72      0.81      0.76      1401
+         Vi tinh       0.79      0.82      0.81      1401
+
+     avg / total       0.74      0.74      0.74     14010
+
+Tranning Done!  2018-05-06 22:55:41.593514
+Saving Model...  2018-05-06 22:55:41.593551
+Save Model Done!  2018-05-06 22:55:41.607583
+Training by RandomForest Classifier Done ! 
+Training by Logistic_Classifier ...
+Tranning...  2018-05-06 22:55:41.607663
+Accurancy:  0.88608137045
+                  precision    recall  f1-score   support
+
+Chinh tri Xa hoi       0.83      0.79      0.81      1401
+        Doi song       0.84      0.71      0.77      1401
+        Khoa hoc       0.86      0.83      0.85      1401
+      Kinh doanh       0.88      0.91      0.89      1401
+       Phap luat       0.90      0.91      0.91      1401
+        Suc khoe       0.87      0.94      0.90      1401
+        The gioi       0.93      0.90      0.91      1401
+        The thao       0.97      0.97      0.97      1401
+         Van hoa       0.87      0.94      0.90      1401
+         Vi tinh       0.91      0.96      0.94      1401
+
+     avg / total       0.89      0.89      0.88     14010
+
+Tranning Done!  2018-05-06 22:56:18.121243
+Saving Model...  2018-05-06 22:56:18.121282
+Save Model Done!  2018-05-06 22:56:18.913295
+Training by Logistic_Classifier Done !
+huylv@huylv-hust:~/ML/code/text-classifcation$ 

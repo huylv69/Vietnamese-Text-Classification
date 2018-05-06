@@ -8,6 +8,11 @@ python predict.py -i <filename document>
 ```
 ------
 ## Build lại chương trình 
+
+- Tạo thư mục dataset và features : 
+```
+./mkdir.sh
+```
 #### Xây dựng dữ liệu & Tiền xử lý
 ```
 python preProcessData.py

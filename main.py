@@ -47,23 +47,30 @@ if __name__ == '__main__':
     features_test, labels_test = FeatureExtraction(data=features_test_loader).read_feature()
     print 'Read Feature Extraction Done! ',  str(datetime.now())
 
-    # KNeighbors Classifier
-    # est = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=KNeighborsClassifier(n_neighbors=3))
-    # est.training()
-    # est.save_model(filePath='trained_model/knn_model.pk') # save Model
-    
+    # # KNeighbors Classifier
+    # print 'Training by KNeighbors Classifier ...'
+    # estKNeighbors = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=KNeighborsClassifier(n_neighbors=3))
+    # estKNeighbors.training()
+    # estKNeighbors.save_model(filePath='trained_model/knn_model_tfidf.pk') # save Model
+    # print 'Training by KNeighbors Classifier Done !'
     
     # SVM Classifier 
-    # est = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=LinearSVC(random_state=0))
-    # est.training()
-    # est.save_model(filePath='trained_model/linear_svc_model.pk') # save Model
+    print 'Training by SVM Classifier ...'
+    estSVM = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator= LinearSVC())
+    estSVM.training()
+    estSVM.save_model(filePath='trained_model/svm_model.pk') # save Model
+    print 'Training by SVM Classifier Done !'
 
-    # RandomForest Classifier
-    # est = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=RandomForestClassifier())
-    # est.training()
-    # est.save_model(filePath='trained_model/random_forest_model.pk') # save Model
+    # # RandomForest Classifier
+    # print 'Training by RandomForest Classifier ...'
+    # estRandomForest = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=RandomForestClassifier())
+    # estRandomForest.training()
+    # estRandomForest.save_model(filePath='trained_model/random_forest_model_tfidf.pk') # save Model
+    # print 'Training by RandomForest Classifier Done ! '
 
-    # Logistic_Classifier
-    est = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=LogisticRegression())
-    est.training()
-    est.save_model(filePath='trained_model/logistic _model.pk') # save Model
+    # Logistic_Classifier        
+    print 'Training by Logistic_Classifier ...'
+    estLogistic = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator=LogisticRegression())
+    estLogistic.training()
+    estLogistic.save_model(filePath='trained_model/logistic_model.pk') # save Model
+    print 'Training by Logistic_Classifier Done !'

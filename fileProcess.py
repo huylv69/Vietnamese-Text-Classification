@@ -21,7 +21,7 @@ class DataLoader(object):
         data = []
         for topic in self.files:
             # rand = randint(1, 5)
-            rand =1400
+            rand =100
             i = 0
             for file in self.files[topic]:
                 content = FileReader(filePath=file).content()
