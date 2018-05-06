@@ -97,7 +97,7 @@ def get_feature_dict(value_features,value_labels):
         }
 
 if __name__ == '__main__':
-    print 'Read data ',  str(datetime.now())
+    print 'Reading data raw... ',  str(datetime.now())
     json_train = DataLoader(dataPath=settings.DATA_TRAIN_PATH).get_json()
     # FileStore(filePath=settings.DATA_TRAIN_JSON, data=json_train).store_json()
     json_test = DataLoader(dataPath=settings.DATA_TEST_PATH).get_json()
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     # data_test = test_loader.read_json()
 
     # Feature Extraction
-    print 'Feature Extraction! ',  str(datetime.now())
+    print 'Featuring Extraction... ',  str(datetime.now())
     # Bow
     # features_train, labels_train = FeatureExtraction(data=json_train).get_data_and_label_bow()
     # features_test, labels_test = FeatureExtraction(data=json_test).get_data_and_label_bow()
