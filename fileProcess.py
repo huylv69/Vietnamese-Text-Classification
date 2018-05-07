@@ -21,18 +21,18 @@ class DataLoader(object):
         data = []
         for topic in self.files:
             # rand = randint(1, 5)
-            rand =100
-            i = 0
+            # rand =100
+            # i = 0
             for file in self.files[topic]:
                 content = FileReader(filePath=file).content()
                 data.append({
                     'category': topic,
                     'content': content
                 })
-                if i == rand:
-                    break
-                else:
-                    i += 1
+                # if i == rand:
+                #     break
+                # else:
+                #     i += 1
         return data
 
 class FileReader(object):

@@ -1,3 +1,13 @@
+"""
+================
+Phân loại văn bản Tiếng Việt
+================
+
+Chương trình phân loại văn bản Tiếng Việt.
+
+"""
+
+print(__doc__)
 import numpy as np
 from random import randint
 import os
@@ -30,7 +40,7 @@ def readInput():
 if __name__ == '__main__':
     #  Read input data
     data = readInput()
-    classifier = pickle.load(open('trained_model/logistic _model.pk','rb'))
+    classifier = pickle.load(open('trained_model/logistic_model.pk','rb'))
     
     # bow
     # dense = FeatureExtraction(None).get_dense(text=data.decode('utf-16le'))
@@ -38,7 +48,7 @@ if __name__ == '__main__':
     # features.append(dense)
     
     # tf-idf
-    vectorizer = pickle.load(open('vector_embedding/vector_embedding.pkl','rb'))
+    vectorizer = pickle.load(open(settings.VECTOR_EMBEDDING,'rb'))
     data_features = []
     data_features.append(' '.join(NLP(text=data.decode('utf-16le')).get_words_feature()))
     features = vectorizer.transform(data_features)

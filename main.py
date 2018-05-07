@@ -5,11 +5,15 @@ import settings
 from datetime import datetime
 from fileProcess import FileReader, FileStore 
 from preProcessData import FeatureExtraction
+import numpy as np
+import itertools
 
+import matplotlib.pyplot as plt
 import cPickle as pickle
 from gensim import corpora, matutils
 from sklearn.svm import LinearSVC
 from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
@@ -35,8 +39,40 @@ class Classifier(object):
 
     def __training_result(self):
         y_true, y_pred = self.labels_test, self.estimator.predict(self.features_test)
+        cnf_matrix = confusion_matrix(y_true, y_pred)
+        plot_confusion_matrix(cnf_matrix, title='Confusion matrix from Logistic')
         print 'Accurancy: ',self.estimator.score(self.features_test,self.labels_test)
         print(classification_report(y_true, y_pred))
+
+def plot_confusion_matrix(cm, 
+                          normalize=False,
+                          title='Confusion matrix'):
+    classes= ["Chinh tri Xa hoi","Doi song","Khoa hoc","Kinh doanh","Phap luat","Suc khoe","The gioi","The thao","Van hoa","Vi tinh"]
+    plt.figure()
+    # if normalize:
+    #     cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+    #     print("Normalized confusion matrix")
+    # else:
+    #     print('Confusion matrix, without normalization')
+        
+    plt.imshow(cm, interpolation='nearest',cmap=plt.cm.Blues)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+
+    fmt = '.2f' if normalize else 'd'
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    plt.show()             
 
 if __name__ == '__main__':
     # Read feature extraction 
@@ -54,9 +90,9 @@ if __name__ == '__main__':
     # estKNeighbors.save_model(filePath='trained_model/knn_model_tfidf.pk') # save Model
     # print 'Training by KNeighbors Classifier Done !'
     
-    # SVM Classifier 
+    # # SVM Classifier 
     # print 'Training by SVM Classifier ...'
-    # estSVM = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator= LinearSVC())
+    # estSVM = Classifier(features_train=features_train, features_test=features_test, labels_train=labels_train, labels_test=labels_test,estimator= LinearSVC(penalty='l2', C= 4))
     # estSVM.training()
     # estSVM.save_model(filePath='trained_model/svm_model.pk') # save Model
     # print 'Training by SVM Classifier Done !'
@@ -74,3 +110,4 @@ if __name__ == '__main__':
     estLogistic.training()
     estLogistic.save_model(filePath='trained_model/logistic_model.pk') # save Model
     print 'Training by Logistic_Classifier Done !'
+    

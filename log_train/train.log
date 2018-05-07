@@ -1,0 +1,69 @@
+huylv@huylv-hust:~/ML/code/text-classifcation$ python main.py
+Reading Feature Extraction...  2018-05-07 20:28:54.923599
+Read Feature Extraction Done!  2018-05-07 20:28:55.747619
+Training by SVM Classifier ...
+Tranning...  2018-05-07 20:28:55.747770
+Accurancy:  0.922061421793
+                  precision    recall  f1-score   support
+
+Chinh tri Xa hoi       0.88      0.89      0.89      7567
+        Doi song       0.79      0.67      0.72      2036
+        Khoa hoc       0.85      0.81      0.83      2096
+      Kinh doanh       0.93      0.90      0.91      5276
+       Phap luat       0.91      0.92      0.92      3788
+        Suc khoe       0.92      0.96      0.94      5417
+        The gioi       0.96      0.93      0.95      6716
+        The thao       0.98      0.98      0.98      6667
+         Van hoa       0.93      0.95      0.94      6250
+         Vi tinh       0.93      0.97      0.95      4560
+
+     avg / total       0.92      0.92      0.92     50373
+
+Tranning Done!  2018-05-07 20:30:39.694681
+Saving Model...  2018-05-07 20:30:39.694765
+Save Model Done!  2018-05-07 20:30:41.721318
+Training by SVM Classifier Done !
+Training by RandomForest Classifier ...
+Tranning...  2018-05-07 20:30:41.721593
+Accurancy:  0.760030174895
+                  precision    recall  f1-score   support
+
+Chinh tri Xa hoi       0.53      0.84      0.65      7567
+        Doi song       0.45      0.47      0.46      2036
+        Khoa hoc       0.73      0.33      0.45      2096
+      Kinh doanh       0.80      0.62      0.70      5276
+       Phap luat       0.74      0.78      0.76      3788
+        Suc khoe       0.81      0.86      0.84      5417
+        The gioi       0.92      0.72      0.80      6716
+        The thao       0.92      0.94      0.93      6667
+         Van hoa       0.88      0.77      0.82      6250
+         Vi tinh       0.88      0.76      0.81      4560
+
+     avg / total       0.79      0.76      0.76     50373
+
+Tranning Done!  2018-05-07 20:44:12.726077
+Saving Model...  2018-05-07 20:44:12.726180
+Save Model Done!  2018-05-07 20:44:13.299029
+Training by RandomForest Classifier Done !
+Training by Logistic_Classifier ...
+Tranning...  2018-05-07 20:44:13.299891
+Accurancy:  0.922815794175
+                  precision    recall  f1-score   support
+
+Chinh tri Xa hoi       0.87      0.90      0.89      7567
+        Doi song       0.79      0.70      0.74      2036
+        Khoa hoc       0.86      0.80      0.83      2096
+      Kinh doanh       0.94      0.89      0.91      5276
+       Phap luat       0.91      0.92      0.91      3788
+        Suc khoe       0.92      0.96      0.94      5417
+        The gioi       0.96      0.93      0.94      6716
+        The thao       0.98      0.98      0.98      6667
+         Van hoa       0.93      0.95      0.94      6250
+         Vi tinh       0.93      0.96      0.95      4560
+
+     avg / total       0.92      0.92      0.92     50373
+
+Tranning Done!  2018-05-07 20:49:26.464048
+Saving Model...  2018-05-07 20:49:26.464287
+Save Model Done!  2018-05-07 20:49:28.817199
+Training by Logistic_Classifier Done !
