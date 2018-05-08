@@ -1,10 +1,7 @@
 """
 ================
-Phân loại văn bản Tiếng Việt
+Phan Loai Van Ban Tieng Viet
 ================
-
-Chương trình phân loại văn bản Tiếng Việt.
-
 """
 
 print(__doc__)

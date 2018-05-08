@@ -56,21 +56,21 @@ print ('logictic: ', logictic())
 
 
 # Nearest Neighbors
-# def nearest_Neighbors():
+def nearest_Neighbors():
 
-#     from sklearn.neighbors import KNeighborsClassifier
-#     from sklearn.model_selection import GridSearchCV
-#     knn = KNeighborsClassifier()
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.model_selection import GridSearchCV
+    knn = KNeighborsClassifier()
 
-#     param_grid = {'n_neighbors': [3, 5, 7, 9]}
-#     clf = GridSearchCV(knn, param_grid, refit=True)
+    param_grid = {'n_neighbors': [3, 5, 7, 9]}
+    clf = GridSearchCV(knn, param_grid, refit=True)
 
-#     clf.fit(X_train, y_train)
-#     best_score = clf.best_score_
-#     best_param = clf.best_params_
-#     score = clf.score(X_test, y_test)
+    clf.fit(X_train, y_train)
+    best_score = clf.best_score_
+    best_param = clf.best_params_
+    score = clf.score(X_test, y_test)
 
-#     return best_score, best_param, score
+    return best_score, best_param, score
 
 # # print 'nearest_Neighbors: ', nearest_Neighbors()
 # # tfidf: nearest_Neighbors:  (0.61078431372549025, {'n_neighbors': 9}, 0.61078431372549025)
