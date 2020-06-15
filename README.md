@@ -1,6 +1,8 @@
 # Vietnamese-Text-Classification
 Vietnamese Text Classification
 
+***tf-idf, bow, Random Forest,K Nearest Neighbors, Logistic Regression, Support Vector Machine,..***
+
 ## Chương trình phân loại 
 - Chạy chương trình phân loại 1 văn bản bất kì (model đã tồn tại trong train_model): 
 ```
